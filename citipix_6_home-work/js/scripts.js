@@ -7,11 +7,12 @@ function onReady() {
           $('#city-type').append('<option value=' + item + '>' + item + ' </option>');
      }
      cities.forEach(citiesDropDown);
+     $('#city-type').css({});
      //when the user selects an option
      //record what that value is 
      // if NYC add background NYC ...
      $('#city-type').on('change', function() {
-          var selectedCity = $('#city-type').val();
+          let selectedCity = $('#city-type').val();
           if ( (selectedCity) === 'NYC') {
                $('body').attr('class', 'nyc');
           }
@@ -28,8 +29,11 @@ function onReady() {
                $('body').attr('class', 'sydney');
           }
           else {
-               $('body').css({"background-image": "url(images/citipix_skyline.jpg)", "background-size": "cover"}); 
+          location.reload()
           }
           });
+     
+     $('#city-type').css({'appearance': 'none', '-webkit-appearance': 'none', '-moz-appearance': 'none',  'background': 'transparent', 'background': 'url(https://img.icons8.com/metro/26/000000/long-arrow-down.png) no-repeat right #ddd'})
+     
 }
 $('document').ready(onReady);
